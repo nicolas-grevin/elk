@@ -1,0 +1,14 @@
+name: app_1
+
+filebeat.inputs:
+  - type: filestream
+    id: app_1
+    enabled: true
+    paths:
+      - /usr/share/filebeat/logs/*.log
+    fields:
+      type: json_logs
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ttl: 0
